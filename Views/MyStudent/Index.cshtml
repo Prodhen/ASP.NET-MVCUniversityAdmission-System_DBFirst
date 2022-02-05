@@ -1,0 +1,150 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<_1262228_Arosh.Models.Student>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<center><h2>Student Registration Form</h2></center>
+
+
+<div>
+
+  <center> <input type="text" id="Search" placeholder="Search" class="form-control" /></center>
+</div>
+<table class="table">
+    <tr>
+        <th style="width:90px">
+           First Name
+        </th>
+        <th style="width:90px">
+            Last Name
+        </th>
+
+        <th>
+           Email
+        </th>
+        <th>
+         Mobile
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            DOB
+        </th>
+        <th>
+           Shift
+        </th>
+        <th style="width:100px">
+            Parents Name
+        </th>
+        <th>
+          Address
+        </th>
+        <th>
+           Picture
+        </th>
+        <th>
+           Status
+        </th>
+        <th style="width:120px">
+           Class Name
+        </th>
+        <th cstyle="width:150px">
+            @Html.ActionLink("Add Student", "Create", new { @class = "btn btn-info btn-sm" })
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="Search">
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Hobies)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shift)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                <img src="@Url.Content(item.Picture)" width="60" height="60" />
+            </td>
+
+
+            <td>
+                @if (item.Status.Value)
+                {<text>Active</text>}
+            else
+            {<text>Pending</text>}
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classess.Name)
+            </td>
+            <td style="width:300px" >
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }, new { @class= "btn btn-warning btn-sm" })
+                @Html.ActionLink("Details", "Details", new { id = item.StudentID }, new { @class = "btn btn-info btn-sm" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<center>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</center>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_One, text_two) {
+            if (text_One.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchtext = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchtext)) {
+                    $(this).hide();
+
+
+                }
+                else {
+                    $(this).show();
+                }
+
+            });
+
+
+        });
+
+
+    });
+</script>

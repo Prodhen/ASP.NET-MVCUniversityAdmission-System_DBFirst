@@ -1,0 +1,90 @@
+﻿@model _1262228_Arosh.Models.Parent
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Ajax.BeginForm("Details", "MyParent", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "div-record", OnSuccess = "$('.close').click()" }))
+    {
+    <div>
+        <center>  <h4>Chack your Parent Information!</h4></center>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Occupation)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Occupation)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Income)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Income)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+        </dl>
+    </div>
+    }
+<center>
+    <div>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ParentID }, new { @class = "btn btn-warning btn-sm" })
+        @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-warning btn-sm" })
+    </div>
+</center>
+    </body>
+</html>

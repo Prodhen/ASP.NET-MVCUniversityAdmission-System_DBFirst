@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+
+
+        header {
+            background-color: black;
+        }        
+       
+        .w3-button:hover {
+            color: #000 !important;
+            background-color: #ccc !important
+        }
+
+        .w3-black, .w3-hover-black:hover {
+            color: #fff !important;
+            background-color: #000 !important
+        }
+
+        .w3-display-left {
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(0%,-50%);
+            -ms-transform: translate(-0%,-50%)
+        }
+
+        .w3-display-right {
+            position: absolute;
+            top: 50%;
+            right: 0%;
+            transform: translate(0%,-50%);
+            -ms-transform: translate(0%,-50%)
+        }
+
+
+
+        .mapouter {
+            position: relative;
+            text-align: right;
+            width: 300px;
+            height: 300px;
+        }
+
+        .gmap_canvas {
+            overflow: hidden;
+            background: none !important;
+            width: 300px;
+            height: 300px;
+        }
+</style>
+
+
+<div>
+    <div class="w3-content w3-display-container">
+        <img class="mySlides" src="Banner1.jpg" style="width:100%;height:500px">
+        <img class="mySlides" src="sc2.jpg" style="width: 100%; height:500px">
+        <img class="mySlides" src="sc1.jpg" style="width: 100%; height: 500px">
+        <img class="mySlides" src="sc3.jpg" style="width: 100%; height: 500px">
+
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+
+
+</div>
+<div id="noticeboard" style="display:flex;height:300px">
+    <div style="width:40%; border:solid 2px green; border-spacing:10px,10px;">
+        <div style="background-color:green;color:white; text-align:center;margin-top:-18px;height:30px">
+            <h3>LATEST NEWS</h3>
+        </div>
+        <a href="https://www.dhakatribune.com/bangladesh/education/2021/06/10/admission-test-of-19-public-universities-may-defer">Admission tests of 20 public universities likely to be deferred</a>
+
+    </div>
+    <div style="width:5px"></div>
+    <div style="width:30%; border:solid 2px green; border-spacing:10px,10px; ">
+        <div style="background-color:green;color:white; text-align:center;margin-top:-18px;height:30px"><h3>EVENTES</h3></div>
+        <p>How To Improve Your Focus and Limit Distractions.......On Going<a href="https://allevents.in/dhaka/how-to-improve-your-focus-and-limit-distractions-dhaka/10000102504612054"> Read More...</a></p>
+
+    </div>
+    <div style="width:5px"></div>
+    <div style="width:30%; border:solid 2px green; border-spacing:10px,10px;">
+        <div style="background-color:green;color:white; text-align:center;margin-top:-18px;height:30px">
+            <h3>NOTICE BOARD</h3>
+        </div>
+        <p>DU calls for loan application from students for smartphone<a href="https://www.dhakatribune.com/bangladesh/education/2021/06/08/du-calls-for-loan-application-from-students-for-smartphone"> Read More</a></p>
+    </div>
+
+
+
+</div>
+<div id="pvl" style="display:table; height:250px; width:100%">
+    <div style="display:table-cell; width:300px;padding-left:15px">
+        <div style="color:black; text-align:center;margin-top:0px;height:30px">
+            <h3 style="text-align:center">Vedio Gallary</h3>
+        </div>
+
+        <iframe width="300" height="300" src="https://www.youtube.com/embed/S9dzDXN76yI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div style="display:table-cell; width:300px;padding-left:15px;">
+        <div style="color:black; text-align:center;margin-top:0px;height:30px">
+            <h3 style="text-align:center">Picture Gallary</h3>
+        </div>
+        <div>
+            <marquee behavior="scroll" direction="right" scrollamount="10">
+                <img src="sc5.JPG" width="300" height="300" alt="Flying Bee">
+            </marquee>
+
+
+
+        </div>
+    </div>
+
+    <div style="display:table-cell; width:300px; padding-left:15px">
+        <div style="background-color:white;color:black; text-align:center;margin-top:0px;height:30px">
+            <h3 style="text-align:center">Location</h3>
+        </div>
+        <div class="mapouter" style="height:220px">
+            <div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=NVIT&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" height="300"></iframe><a href="http://www.nvit.com.bd/">NVIT</a></div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    var slideIndex = 1;
+
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+    }
+
+
+
+</script>
